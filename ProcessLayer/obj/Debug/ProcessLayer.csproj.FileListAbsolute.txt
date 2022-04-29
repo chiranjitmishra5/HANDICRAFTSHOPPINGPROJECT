@@ -1,0 +1,36 @@
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.dll.config
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.pdb
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\DataLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\Newtonsoft.Json.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\DataLayer.pdb
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityLayer.pdb
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.xml
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\Newtonsoft.Json.xml
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.csprojResolveAssemblyReference.cache
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.pdb
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.dll.config
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\ProcessLayer.pdb
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\DataLayer.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityLayer.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\Newtonsoft.Json.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\DataLayer.pdb
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\DataLayer.dll.config
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityLayer.pdb
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityLayer.dll.config
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.xml
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\HANDICRAFTSHOPPING\ProcessLayer\bin\Debug\Newtonsoft.Json.xml
+E:\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.csproj.AssemblyReference.cache
+E:\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.csproj.CoreCompileInputs.cache
+E:\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.csproj.CopyComplete
+E:\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.dll
+E:\HANDICRAFTSHOPPING\ProcessLayer\obj\Debug\ProcessLayer.pdb
