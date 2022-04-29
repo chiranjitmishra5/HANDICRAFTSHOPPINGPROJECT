@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetails";
+}
+
+<base href="/" />
+<div class="container" ng-controller="GetProductDetailsController">
+    <div class="row single-product">
+        <div class="detail-block">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 gallery-holder">
+                <div class="product-item-holder size-big single-product-gallery small-gallery">
+                    <div id="owl-single-product" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                        <div class="owl-wrapper-outer">
+                            <div class="owl-wrapper" style="width: 10710px; left: 0px; display: block; border-radius:5px;border:2px solid #ff6a00;">
+                                <div class="owl-item" style="width: 350px;">
+                                    <div class="single-product-gallery-item" id="slide1">
+                                        <a data-lightbox="image-1" data-title="Gallery" href="{{ProductDetailsRecord.Image}}">
+                                            <img class="img-responsive" alt="" src="{{ProductDetailsRecord.Image}}">
+                                        </a>
+                                    </div>
+                                </div>
+                                @*<div class="owl-item" style="width: 595px;">
+                                        <div class="single-product-gallery-item" id="slide2">
+                                            <a data-lightbox="image-1" data-title="Gallery" href="{{ProductDetailsRecord.Image1}}">
+                                                <img class="img-responsive" alt="" src="{{ProductDetailsRecord.Image1}}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 595px;">
+                                        <div class="single-product-gallery-item" id="slide3">
+                                            <a data-lightbox="image-1" data-title="Gallery" href="{{ProductDetailsRecord.Image2}}">
+                                                <img class="img-responsive" alt="" src="{{ProductDetailsRecord.Image2}}">
+                                            </a>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 product-info-block">
+                <div class="product-info">
+                    <h1 class="name">{{ProductDetailsRecord.ProductName}}</h1>
+                    <div class="stock-container info-container m-t-10">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="pull-left">
+                                    <div class="stock-box">
+                                        <span class="label">Availability :</span>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="stock-box">
+                                        <span class="value">1 In Stock</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.stock-container -->
+                    <div class="description-container m-t-20">
+                        <p>{{ProductDetailsRecord.Description}}</p>
+                    </div><!-- /.description-container -->
+                    <div class="price-container info-container m-t-30">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="price-box">
+                                    <span class="price"><i class="fa fa-inr" aria-hidden="true"></i> {{ProductDetailsRecord.ProductPrice}}</span>
+                                    <u><span class="price-strike"><i class="fa fa-inr" aria-hidden="true"></i> 900.00</span></u>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.price-container -->
+                    <div class="quantity-container info-container">
+                        <div class="row">
+                            @*<div class="qty">
+                                    <span class="label">Qty :</span>
+                                </div>
+                                <div class="qty-count">
+                                    <div class="cart-quantity">
+                                        <div class="quant-input">
+                                            <div class="arrows">
+                                                <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                                <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                            </div>
+                                            <input type="text" value="1">
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="add-btn" ng-click="getProductIDandCustID(ProductDetailsRecord.ProductID,2)">
+                                <a href="#" class="btn btn-primary"><i class="fa fa-flash inner-right-vs"></i>BUY NOW</a>
+                                <a href="#" class="#"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.quantity-container -->
+                </div><!-- /.product-info -->
+            </div><!-- /.col-sm-7 -->
+        </div>
+        <div class="clearfix"></div>
+    </div><!-- /.row -->
+</div>
+

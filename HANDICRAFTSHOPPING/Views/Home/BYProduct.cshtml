@@ -1,0 +1,259 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+<style>
+    body {
+        margin-top: 20px;
+    }
+    .panel-title {
+        display: inline;
+        font-weight: bold;
+    }
+    .checkbox.pull-right {
+        margin: 0;
+    }
+    .pl-ziro {
+        padding-left: 0px;
+    }
+</style>
+<br />
+<br />
+<div class="container" ng-controller="GetProductDetailsController1">
+    <div class="col-xs-12 col-sm-12 col-md-9">
+        <div class="sidebar-module-container">
+            <div class="sidebar-filter">
+                <div class="sidebar-widget">
+                    <div class="sidebar-widget-body">
+                        <h3 class="section-title">1)   LOGIN DETAILS</h3>
+                        <span style="font-size:15px">{{CustomerDetailsRecord.PhoneNo}}
+                        </span>
+                    </div>
+                    <!-- /.sidebar-widget-body -->
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="sidebar-module-container">
+            <div class="sidebar-filter">
+                <div class="sidebar-widget">
+                    <div class="sidebar-widget-body">
+                        <h3 class="section-title">2)   DELIVERY ADDRESS</h3>
+
+                        <span style="font-size:15px">{{CustomerDetailsRecord.Address}}</span>
+                    </div>
+                    <!-- /.sidebar-widget-body -->
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <div class="sidebar-module-container">
+            <div class="sidebar-filter">
+                <div class="sidebar-widget">
+
+                    <div class="sidebar-widget-body">
+                        <h3 class="section-title">3)   PAYMENT PROCESS</h3>
+
+                        <div class="accordion">
+                            <div class="accordion-group">
+
+                                <div class="accordion-heading">
+                                    <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle collapsed" style="font-size:larger">
+                                        <input type="radio" name="optradio" checked>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Credit / Debit / ATM Card
+                                    </a>
+                                </div>
+                                <!-- /.accordion-heading -->
+                                <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        <ul>
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-6">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">
+                                                                    Payment Details
+                                                                </h3>
+                                                                <div class="checkbox pull-right">
+                                                                    <label>
+                                                                        <input type="checkbox" />
+                                                                        Remember
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <form role="form">
+                                                                    <div class="form-group">
+                                                                        <label for="cardNumber">
+                                                                            CARD NUMBER
+                                                                        </label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                                                                   required autofocus />
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-7 col-md-7">
+                                                                            <div class="form-group">
+                                                                                <label for="expityMonth" style="margin-left: -75px;">
+                                                                                    EXPIRY DATE
+                                                                                </label>
+                                                                                <div class="col-xs-6 col-lg-6 pl-ziro" style="margin-top:25px">
+                                                                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                                                                </div>
+                                                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xs-5 col-md-5 pull-right">
+                                                                            <div class="form-group">
+                                                                                <label for="cvCode">
+                                                                                    CV CODE
+                                                                                </label>
+                                                                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="active">
+                                                                <a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                                                            </li>
+                                                        </ul>
+                                                        <br />
+                                                        <div class="btn btn-success btn-lg btn-block" role="button">Pay</div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <!-- /.accordion-inner -->
+                                </div>
+                                <!-- /.accordion-body -->
+                            </div>
+                            <!-- /.accordion-group -->
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a href="#collapseTwo" data-toggle="collapse" class="accordion-toggle collapsed" style="font-size:larger">
+                                        <input type="radio" name="optradio1" checked>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        @*<img src="https://img1a.flixcart.com/linchpin-web/fk-cp-zion/img/phonepe_logo_28.svg" style=" width 24px;height 24px;margin-right 16px;margin-top -3px;" />PhonePe / BHIM UP
+                                        <img src="~/images/home/sb.png" />*@
+                                    </a>
+                                </div>
+                                <!-- /.accordion-heading -->
+                                <div class="accordion-body collapse" id="collapseTwo" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        <ul>
+                                            <li>
+                                                <span style="font-size: 16px;display: block;font-weight: 500;">You'll be redirected to PhonePe page, where you can pay using UPI, credit/debit card or wallet</span>
+
+                                                <button style="background: #fb641b;box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);border: none;color: #fff;height: 48px;font-size: 16px;margin-top: 14px;text-transform: uppercase; font-weight: 400;padding: 0 64px;" type="button"><span>CONTINUE</span></button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.accordion-inner -->
+                                </div>
+                                <!-- /.accordion-body -->
+                            </div>
+                            <!-- /.accordion-group -->
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a href="#collapseThree" data-toggle="collapse" class="accordion-toggle collapsed" style="font-size:larger">
+                                        <input type="radio" name="optradio2" checked>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Net Banking
+                                    </a>
+                                </div>
+                                <!-- /.accordion-heading -->
+                                <div class="accordion-body collapse" id="collapseThree" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        <ul>
+                                            <li><h3>Popular Banks</h3> </li>
+                                            <li>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.accordion-inner -->
+                                </div>
+                                <!-- /.accordion-body -->
+                            </div>
+                            <!-- /.accordion-group -->
+
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a href="#collapseFour" data-toggle="collapse" class="accordion-toggle collapsed" style="font-size:larger">
+                                        <input type="radio" name="optradio3" checked>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Cash on Delivery
+                                    </a>
+                                </div>
+                                <!-- /.accordion-heading -->
+                                <div class="accordion-body collapse" id="collapseFour" style="height: 0px;">
+                                    <div class="accordion-inner">
+                                        <ul>
+                                            <li>
+                                                <div style="display: inline-block;">
+                                                    <div class="Pu8Eh8"><div class="Th26Zc"><input type="text" class="_16qL6K _366U7Q" name="captcha" required="" tabindex="1" maxlength="10" value=""><label for="captcha" class="_20i8vs">Enter the characters</label></div></div>
+                                                    <button style="background: #fb641b;box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);border: none;color: #fff;height: 48px;font-size: 16px;margin-top: 14px;text-transform: uppercase; font-weight: 400;padding: 0 64px;" type="button"><span>CONTINUE</span></button>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <!-- /.accordion-inner -->
+                                </div>
+                                <!-- /.accordion-body -->
+                            </div>
+                            <!-- /.accordion-group -->
+
+                        </div>
+                        <!-- /.accordion -->
+                    </div>
+                    <!-- /.sidebar-widget-body -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3">
+        <div class="sidebar-module-container">
+            <div class="sidebar-filter">
+                <div class="sidebar-widget">
+                    <div id="advertisement" class="advertisement owl-carousel owl-theme" style="opacity: 1; display: block;">
+                        <div class="owl-wrapper-outer">
+                            <div class="owl-wrapper" style="width: 1320px; left: 0px; display: block;">
+                                <div class="owl-item" style="width: 220px;">
+                                    <div class="item">
+                                        <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div>
+                                        <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer. Sed quia non numquam eius modi tempora incidunt ut labore et dolore.<em>"</em></div>
+
+                                        <!-- /.container-fluid -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /.item -->
+                        <!-- /.item -->
+                        <!-- /.item -->
+
+                        <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div></div>
+                    </div>
+                    <!-- /.owl-carousel -->
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "CategoryProductDetails";
+}
+
+<base href="/" />
+<div class="search-result-container " ng-controller="GetProductListController">
+    <div id="myTabContent" class="tab-content category-list">
+        <div class="tab-pane active container " id="grid-container">
+            <div class="category-product">
+                <div class="row ">
+
+                    <div class="col-md-3" ng-repeat="e in ProductRecord">
+                        <div class="product-image-wrapper" style="border-bottom:2px solid #808080; border-radius:5px">
+                            <div class="single-products" ng-click="getProductID(e.ProductID)">
+                                <div class="productinfo text-center">
+                                    <img src="{{e.Image}}" alt="">
+                                    <i class="fa fa-inr" aria-hidden="true"></i><h2>{{e.ProductPrice}}</h2>
+                                    <p>{{e.ProductName}}</p>
+                                </div>
+                                <div class="product-overlay">
+                                    <div class="overlay-content">
+                                        <img src="{{e.Image1}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    @*<div class="col-md-2" ng-repeat="e in ProductRecord">
+                            <div class="item">
+                                <div class="products">
+                                    <div class="product" ng-click="getProductID(e.ProductID)">
+                                        <div class="product-image">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="{{e.Image}}" alt="">
+                                                    <img src="{{e.Image1}}" alt="" class="hover-image">
+                                                </a>
+                                            </div>
+                                            <!-- /.image -->
+                                        </div>
+                                        <!-- /.product-image -->
+                                        <div class="product-info text-left">
+                                            <h3 class="name"><a href="detail.html">{{e.ProductName}}</a></h3>
+                                            <div class="rating rateit-small rateit"><button id="rateit-reset-2" data-role="none" class="rateit-reset" aria-label="reset rating" aria-controls="rateit-range-2" style="display: none;"></button><div id="rateit-range-2" class="rateit-range" tabindex="0" role="slider" aria-label="rating" aria-owns="rateit-reset-2" aria-valuemin="0" aria-valuemax="5" aria-valuenow="4" aria-readonly="true" style="width: 70px; height: 14px;"><div class="rateit-selected" style="height: 14px; width: 56px;"></div><div class="rateit-hover" style="height:14px"></div></div></div>
+                                            <div class="description"></div>
+                                            <div class="product-price"> <span class="price"><i class="fa fa-inr" aria-hidden="true"></i>  {{e.ProductPrice}}</span></div>
+                                            <!-- /.product-price -->
+                                        </div>
+                                    </div>
+                                    <!-- /.product -->
+
+                                </div>
+                                <!-- /.products -->
+                            </div>
+                        </div>*@
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.category-product -->
+
+        </div>
+        <!-- /.tab-pane -->
+        <!-- /.filters-container -->
+
+    </div>
+</div>
+

@@ -1,0 +1,225 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<div class="body-content outer-top-xs" ng-controller="GetAllProductListController">
+    <div class="container">
+        <div class="row ">
+            <div class="shopping-cart">
+                <div class="shopping-cart-table ">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="cart-romove item text-center">Remove</th>
+                                    <th class="cart-edit item text-center">Edit</th>
+                                    <th class="cart-description item text-center">Image</th>
+                                    <th class="cart-product-name item text-left">Product Description</th>
+                                    <th class="cart-total last-item text-center">Date</th>
+                                    <th class="cart-total last-item text-center">Price</th>
+                                </tr>
+                            </thead><!-- /thead -->
+                            <tbody>
+                                <tr ng-repeat="e in ProductDetailsRecord">
+                                    <td class="romove-item text-center"><i class="fa fa-trash-o text-danger" ng-click="Delete(e.ProductID)"></i></td>
+                                    <td class="cart-product-edit text-center"><i class="fa fa-pencil-square-o mouse-Hover" data-toggle="modal" data-target="#modal-right" style="color:#0094ff;font-size:x-large" aria-hidden="true" ng-click="Edit(e.ProductID)"></i></td>
+                                    <td class="cart-image text-center">
+                                        <a class="entry-thumbnail" href="detail.html">
+                                            <img src="{{e.Image}}" alt="">
+                                            <p class="text-center">{{e.ProductName}}</p>
+                                        </a>
+                                    </td>
+                                    <td class="cart-product-name-info text-left" style="width:400px">
+                                        <h4 class="cart-product-description">{{e.Description}}</h4>
+                                    </td>
+                                    <td class="cart-product-name-info text-center">
+                                        <h4 class="cart-product-description">{{e.SCreatedOn}}</h4>
+                                    </td>
+                                    <td class="cart-product-grand-total text-center"><span class="cart-grand-total-price"><i class="fa fa-inr" aria-hidden="true"></i> {{e.ProductPrice}}</span></td>
+                                </tr>
+                            </tbody><!-- /tbody -->
+                        </table><!-- /table -->
+                        <!-----------Modul------------------>
+                        <div class="modal modal-right fade" id="modal-right" tabindex="-1" style="display: none;" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="container">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="border-bottom-color: #888282;">
+                                            <div class="row container">
+                                                <h5 class="modal-title">Edit Product</h5>
+                                                <button type="button" class="close" data-dismiss="modal" style="margin-top:-23px">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Name</label>
+                                                <input type="text" capitalize name="ProductName" autocomplete="off" class="form-control" id="InputProduct" placeholder="Product Name" ng-model="ProductRecord.ProductName" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                                <span class="error" ng-show="(f1.ProductName.$dirty || Submitted) && f1.ProductName.$error.required">Product Name Required</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputReview">Product Description <span class="astk">*</span></label>
+                                                <textarea class="form-control txt txt-review" name="Description" autocomplete="off" id="exampleInputReview" rows="3" placeholder="Product Description" ng-model="ProductRecord.Description" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                                                <span class="error" ng-show="(f1.Description.$dirty || Submitted) && f1.Description.$error.required">Product Description Required</span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Select Category</label>
+                                                        <select class="form-control" ng-model="ProductRecord.CategoryID" name="DeptId" required>
+                                                            <option value="" disabled selected>-----Select Category-----</option>
+                                                            <option ng-repeat="e in CategoryData.CategoryList" value="{{e.CategoryID}}">{{e.CategoryName}}</option>
+                                                        </select>
+                                                        @*<span ng-cloak class="error" ng-show="(f1.DeptId.$dirty || Submitted) && f1.DeptId.$error.required">Category Required</span>*@
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="info-title" for="exampleInputEmail1">Price</label>
+                                                        <input type="text" capitalize name="ProductPrice" autocomplete="off" class="form-control" id="InputPrice" placeholder="Price" ng-model="ProductRecord.ProductPrice" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                                        <span class="error" ng-show="(f1.ProductPrice.$dirty || Submitted) && f1.ProductPrice.$error.required">Price Required</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Image One</label>
+                                                    <div id='img_contain'><img id="profileimg" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="{{ProductRecord.Image}}" alt="your image" title='' /></div>
+                                                    <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                                        <img>
+                                                        <label for="Imgprofile">
+                                                            <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                                        </label>
+                                                        <input required type="file" style="display:none;" name="profileimage" valid-file id="Imgprofile" ng-model="ProductRecord.Image" onchange="angular.element(this).scope().ProfileImageupload(this.files)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br /><br />
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Image two</label>
+                                                    <div id='img_contain'><img id="profileimg1" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="{{ProductRecord.Image1}}" alt="your image" title='' /></div>
+                                                    <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                                        <img>
+                                                        <label for="Imgprofile1">
+                                                            <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                                        </label>
+                                                        <input required type="file" style="display:none;" name="profileimage1" valid-file id="Imgprofile1" ng-model="ProductRecord.Image1" onchange="angular.element(this).scope().ProfileImage1Upload(this.files)" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Image Three</label>
+                                                    <div id='img_contain'><img id="profileimg2" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="{{ProductRecord.Image2}}" alt="your image" title='' /></div>
+                                                    <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                                        <img>
+                                                        <label for="Imgprofile2">
+                                                            <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                                        </label>
+                                                        <input required type="file" style="display:none;" name="profileimage2" valid-file id="Imgprofile2" ng-model="ProductRecord.Image2" onchange="angular.element(this).scope().ProfileImage2Upload(this.files)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer modal-footer-uniform">
+                                            <button type="button" ng-click="UpdateCategory(CategoryRecord.CategoryID,CategoryRecord.CategoryName)" class="btn btn-bold btn-primary float-right">Update</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-----------END Modul------------------>
+
+
+                    </div>
+                </div><!-- /.shopping-cart-table -->
+            </div><!-- /.shopping-cart -->
+        </div> <!-- /.row -->
+    </div><!-- /.container -->
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    var fileTypes = ['jpg', 'jpeg', 'png', 'what', 'ever', 'you', 'want'];
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg').attr('src', e.target.result);
+                    $('#profileimg').hide();
+                    $('#profileimg').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile").change(function () {
+        readURL(this);
+    });
+
+    function readURL1(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg1').attr('src', e.target.result);
+                    $('#profileimg1').hide();
+                    $('#profileimg1').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile1").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile1").change(function () {
+        readURL1(this);
+    });
+
+    function readURL2(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg2').attr('src', e.target.result);
+                    $('#profileimg2').hide();
+                    $('#profileimg2').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile2").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile2").change(function () {
+        readURL2(this);
+    });
+</script>
+

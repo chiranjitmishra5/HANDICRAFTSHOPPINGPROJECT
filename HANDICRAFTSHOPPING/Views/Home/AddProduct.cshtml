@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="body-content" ng-controller="AddNewProductController">
+    <div class="container">
+        <form novalidate name="f1" ng-submit="AddProduct()">
+            <div class="sign-in-page">
+                <div class="row" style="padding-top: 25px">
+                    <!-- create a new account -->
+                    <div class="col-md-6 col-sm-6 create-new-account">
+                        <h4 class="checkout-subtitle">Add Product Details</h4>
+                        <div class="col-md-6" style="padding-top: 40px">
+                            <div class="form-group">
+                                <label class="info-title" for="exampleInputEmail1">Name</label>
+                                <input type="text" capitalize name="ProductName" autocomplete="off" class="form-control" id="InputProduct" placeholder="Product Name" ng-model="PData.ProductName" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <span class="error" ng-show="(f1.ProductName.$dirty || Submitted) && f1.ProductName.$error.required">Product Name Required</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title" for="exampleInputEmail1">Quantity</label>
+                                <input type="text" class="form-control" capitalize name="ProductQty" autocomplete="off" id="InputQuantity" placeholder="Quantity" ng-model="PData.ProductQty" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <span class="error" ng-show="(f1.ProductQty.$dirty || Submitted) && f1.ProductQty.$error.required">Quantity Required</span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6" style="padding-top: 40px">
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <select class="form-control" ng-model="PData.CategoryID" name="DeptId" required>
+                                    <option value="" disabled selected>-----Select Category-----</option>
+                                    <option ng-repeat="e in CategoryData.CategoryList" value="{{e.CategoryID}}">{{e.CategoryName}}</option>
+                                </select>
+                                @*<span ng-cloak class="error" ng-show="(f1.DeptId.$dirty || Submitted) && f1.DeptId.$error.required">Category Required</span>*@
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title" for="exampleInputEmail1">Price</label>
+                                <input type="text" capitalize name="ProductPrice" autocomplete="off" class="form-control" id="InputPrice" placeholder="Price" ng-model="PData.ProductPrice" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <span class="error" ng-show="(f1.ProductPrice.$dirty || Submitted) && f1.ProductPrice.$error.required">Price Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputReview">Product Description <span class="astk">*</span></label>
+                            <textarea class="form-control txt txt-review" name="Description" autocomplete="off" id="exampleInputReview" rows="3" placeholder="Product Description" ng-model="PData.Description" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <span class="error" ng-show="(f1.Description.$dirty || Submitted) && f1.Description.$error.required">Product Description Required</span>
+                        </div>
+                    </div>
+                    <!-- create a new account -->
+                    <!-- Sign-in -->
+                    <div class="col-md-6 col-sm-6 sign-in">
+                        <h4 class="checkout-subtitle">Add Image</h4>
+                        <div class="col-md-4">
+                            <label>Image One</label>
+                            <div id='img_contain'><img id="profileimg" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="~/assets/css/images/profile-placeholder.gif" alt="your image" title='' /></div>
+                            <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                <img>
+                                <label for="Imgprofile">
+                                    <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                </label>
+                                <input required type="file" style="display:none;" name="profileimage" valid-file id="Imgprofile" ng-model="PData.Image" onchange="angular.element(this).scope().ProfileImageupload(this.files)" />
+                            </div>
+                            <label class="error" ng-show="f1.profileimage.$invalid">Photo Required </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Image two</label>
+                            <div id='img_contain'><img id="profileimg1" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="~/assets/css/images/profile-placeholder.gif" alt="your image" title='' /></div>
+                            <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                <img>
+                                <label for="Imgprofile1">
+                                    <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                </label>
+                                <input required type="file" style="display:none;" name="profileimage1" valid-file id="Imgprofile1" ng-model="PData.Image1" onchange="angular.element(this).scope().ProfileImage1Upload(this.files)" />
+                            </div>
+                            <label class="error" ng-show="f1.profileimage1.$invalid">Photo Required </label>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Image Three</label>
+                            <div id='img_contain'><img id="profileimg2" align='middle' class="img-responsive imageshadow prof" width="169" height="131" src="~/assets/css/images/profile-placeholder.gif" alt="your image" title='' /></div>
+                            <div class="image-upload" style="cursor: pointer; margin-top: -57px; margin-left: 55px;">
+                                <img>
+                                <label for="Imgprofile2">
+                                    <img src="~/assets/css/images/icons8-add-camera-32.png" />
+                                </label>
+                                <input required type="file" style="display:none;" name="profileimage2" valid-file id="Imgprofile2" ng-model="PData.Image2" onchange="angular.element(this).scope().ProfileImage2Upload(this.files)" />
+                            </div>
+                            <label class="error" ng-show="f1.profileimage2.$invalid">Photo Required </label>
+
+                        </div>
+                    </div>
+                    <!-- Sign-in -->
+                </div><!-- /.row -->
+                <div class="row text-center">
+                    <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Add Product</button>
+                </div>
+            </div><!-- /.sigin-in-->
+        </form>
+    </div><!-- /.container -->
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    var fileTypes = ['jpg', 'jpeg', 'png', 'what', 'ever', 'you', 'want'];
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg').attr('src', e.target.result);
+                    $('#profileimg').hide();
+                    $('#profileimg').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile").change(function () {
+        readURL(this);
+    });
+
+    function readURL1(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg1').attr('src', e.target.result);
+                    $('#profileimg1').hide();
+                    $('#profileimg1').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile1").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile1").change(function () {
+        readURL1(this);
+    });
+
+    function readURL2(input) {
+
+        if (input.files && input.files[0]) {
+            var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+                isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+            var reader = new FileReader();
+            if (isSuccess) {
+                reader.onload = function (e) {
+                    $('#profileimg2').attr('src', e.target.result);
+                    $('#profileimg2').hide();
+                    $('#profileimg2').fadeIn(650);
+                }
+            }
+            else {
+                alert("Wrong Format")
+                $("#Imgprofile2").val(null);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    }
+    $("#Imgprofile2").change(function () {
+        readURL2(this);
+    });
+</script>
+

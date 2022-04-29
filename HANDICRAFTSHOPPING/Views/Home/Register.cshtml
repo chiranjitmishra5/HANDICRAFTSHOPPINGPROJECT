@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="container" ng-controller="StudentRegController">
+    <div class="row container">
+    <div class="col-lg-12 col-12 bxshadow">
+        <div class="box box-solid bg-gray">
+            <div class="box-header with-border">
+                <h4 class="box-title">Customer Registration</h4>
+            </div>
+            <!-- /.box-header -->
+            <form class="form" novalidate name="f1" ng-submit="StudentReg()">
+                <div class="box-body">
+                   
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" capitalize class="form-control" placeholder="First Name" name="FName" autocomplete="off" ng-model="StdData.FName" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                        <span class="error" ng-show="(f1.FName.$dirty || Submitted) && f1.FName.$error.required">First Name Required</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" capitalize class="form-control" autocomplete="off" placeholder="Last Name" name="LName" ng-model="StdData.LName" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                        <span class="error" ng-show="(f1.LName.$dirty || Submitted) && f1.LName.$error.required">Last Name Required</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="text" capitalize class="form-control" autocomplete="off" placeholder="Password" name="Pass" ng-model="StdData.Pass" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                        <span ng-cloak class="error" ng-show="(f1.Pass.$dirty || Submitted) && f1.Pass.$error.required">Father's Last Name</span>
+                                    </div>
+                                </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Email ID</label>
+                                <input type="text" class="form-control" placeholder="Email ID" name="EmailAddress" ng-pattern="emailFormat" autocomplete="off" ng-model="StdData.EmailAddress" ng-class="Submitted?'ng-dirty':''" autofocus>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" capitalize class="form-control" placeholder="Address" name="Address" autocomplete="off" ng-model="StdData.Address" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <span class="error" ng-show="(f1.Address.$dirty || Submitted) && f1.Address.$error.required">Address Required</span>
+                            </div>
+                        </div>
+                        @*<div class="col-md-4">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" name="EmpCode" autocomplete="off" ng-model="StdData.EmployeeCode" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                    <span class="error" ng-show="(f1.EmpCode.$dirty || Submitted) && f1.EmpCode.$error.required">First Name Required</span>
+                                </div>
+                            </div>*@
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Select Gender</label><br />
+                                <input name="gender" type="radio" id="radio_1" value="M" ng-model="StdData.Gender" required>
+                                <label for="radio_1">Male</label>
+                                <input name="gender" type="radio" id="radio_2" value="F" ng-model="StdData.Gender" required>
+                                <label for="radio_2">Female</label>
+                                <span class="error" ng-show="(f1.gender.$dirty || Submitted) && f1.gender.$error.required">Gender Required</span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Mobile No</label>
+                                <input type="text" class="form-control" autocomplete="off" placeholder="Mobile No" ng-pattern="/^[6-9][0-9]{9}$/" ng-model="StdData.PhoneNo" name="PhoneNo" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                <span class="error" ng-show="(f1.PhoneNo.$dirty || Submitted) && f1.PhoneNo.$error.required">Mobile No required</span>
+                                <span class="error" ng-show="f1.PhoneNo.$error.pattern">Please enter valid number</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>DOB</label>
+                                <input type="text" class="form-control" id="datepicker" autocomplete="off" placeholder="YYYY/mm/DD" name="DOB" ng-model="StdData.DOB" ng-class="Submitted?'ng-dirty':''" required>
+                                <span class="error" ng-show="(f1.DOB.$dirty || Submitted) && f1.DOB.$error.required">DOB Required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-12"><center><input type="submit" class="btn btn-rounded btn-primary mb-5 btn-lg" value="Register" /></center></div>                        
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+    <!-- /.box -->
+</div>
+</div>
+    
+
+
+
+
