@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CustomerOrderMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="ProductQty" Type="Int32" />
+    <NavigationProperty Name="CustomerRegisterMaster" Relationship="Self.FK_CustomerOrderMaster_CustomerRegisterMaster" FromRole="CustomerOrderMaster" ToRole="CustomerRegisterMaster" />
+    <NavigationProperty Name="ProductMaster" Relationship="Self.FK_CustomerOrderMaster_ProductMaster" FromRole="CustomerOrderMaster" ToRole="ProductMaster" />
+  </EntityType>
+  <EntityType Name="CustomerRegisterMaster">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="PinCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ProfilePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PassKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsModifide" Type="Boolean" />
+    <NavigationProperty Name="CustomerOrderMasters" Relationship="Self.FK_CustomerOrderMaster_CustomerRegisterMaster" FromRole="CustomerRegisterMaster" ToRole="CustomerOrderMaster" />
+  </EntityType>
+  <EntityType Name="DesignationMaster">
+    <Key>
+      <PropertyRef Name="DEgID" />
+    </Key>
+    <Property Name="DEgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="IsModified" Type="Boolean" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsModified" Type="Boolean" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="UrlID" Type="Int32" />
+    <NavigationProperty Name="UrlMaster" Relationship="Self.FK_ProductCategory_UrlMaster" FromRole="ProductCategory" ToRole="UrlMaster" />
+    <NavigationProperty Name="ProductMasters" Relationship="Self.FK_ProductMaster_ProductCategory" FromRole="ProductCategory" ToRole="ProductMaster" />
+  </EntityType>
+  <EntityType Name="ProductMaster">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProductPrice" Type="Double" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsModified" Type="Boolean" />
+    <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+    <Property Name="ProductQty" Type="Int32" />
+    <NavigationProperty Name="CustomerOrderMasters" Relationship="Self.FK_CustomerOrderMaster_ProductMaster" FromRole="ProductMaster" ToRole="CustomerOrderMaster" />
+    <NavigationProperty Name="ProductCategory" Relationship="Self.FK_ProductMaster_ProductCategory" FromRole="ProductMaster" ToRole="ProductCategory" />
+  </EntityType>
+  <EntityType Name="UrlMaster">
+    <Key>
+      <PropertyRef Name="UrlID" />
+    </Key>
+    <Property Name="UrlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AcctionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ControllerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductCategories" Relationship="Self.FK_ProductCategory_UrlMaster" FromRole="UrlMaster" ToRole="ProductCategory" />
+  </EntityType>
+  <EntityType Name="UserLoginMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DEgID" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CustomerOrderMaster_CustomerRegisterMaster">
+    <End Role="CustomerRegisterMaster" Type="Self.CustomerRegisterMaster" Multiplicity="0..1" />
+    <End Role="CustomerOrderMaster" Type="Self.CustomerOrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRegisterMaster">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerOrderMaster">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOrderMaster_ProductMaster">
+    <End Role="ProductMaster" Type="Self.ProductMaster" Multiplicity="0..1" />
+    <End Role="CustomerOrderMaster" Type="Self.CustomerOrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="CustomerOrderMaster">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategory_UrlMaster">
+    <End Role="UrlMaster" Type="Self.UrlMaster" Multiplicity="0..1" />
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UrlMaster">
+        <PropertyRef Name="UrlID" />
+      </Principal>
+      <Dependent Role="ProductCategory">
+        <PropertyRef Name="UrlID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductMaster_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+    <End Role="ProductMaster" Type="Self.ProductMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ProductMaster">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShopingDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerOrderMasters" EntityType="Self.CustomerOrderMaster" />
+    <EntitySet Name="CustomerRegisterMasters" EntityType="Self.CustomerRegisterMaster" />
+    <EntitySet Name="DesignationMasters" EntityType="Self.DesignationMaster" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+    <EntitySet Name="ProductMasters" EntityType="Self.ProductMaster" />
+    <EntitySet Name="UrlMasters" EntityType="Self.UrlMaster" />
+    <EntitySet Name="UserLoginMasters" EntityType="Self.UserLoginMaster" />
+    <AssociationSet Name="FK_CustomerOrderMaster_CustomerRegisterMaster" Association="Self.FK_CustomerOrderMaster_CustomerRegisterMaster">
+      <End Role="CustomerRegisterMaster" EntitySet="CustomerRegisterMasters" />
+      <End Role="CustomerOrderMaster" EntitySet="CustomerOrderMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOrderMaster_ProductMaster" Association="Self.FK_CustomerOrderMaster_ProductMaster">
+      <End Role="ProductMaster" EntitySet="ProductMasters" />
+      <End Role="CustomerOrderMaster" EntitySet="CustomerOrderMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategory_UrlMaster" Association="Self.FK_ProductCategory_UrlMaster">
+      <End Role="UrlMaster" EntitySet="UrlMasters" />
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductMaster_ProductCategory" Association="Self.FK_ProductMaster_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="ProductMaster" EntitySet="ProductMasters" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

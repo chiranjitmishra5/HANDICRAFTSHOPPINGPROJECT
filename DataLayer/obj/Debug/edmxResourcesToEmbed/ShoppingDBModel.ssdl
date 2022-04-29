@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NewShoppingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CustomerOrderMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="ProductQty" Type="float" />
+  </EntityType>
+  <EntityType Name="CustomerRegisterMaster">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="PinCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProfilePic" Type="varchar(max)" />
+    <Property Name="Pass" Type="varchar(max)" Nullable="false" />
+    <Property Name="PassKey" Type="varchar(max)" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="ProductNumberInCard" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="IsModifide" Type="bit" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+  </EntityType>
+  <EntityType Name="DesignationMaster">
+    <Key>
+      <PropertyRef Name="DEgID" />
+    </Key>
+    <Property Name="DEgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="IsModified" Type="bit" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="DeletedOn" Type="datetime" />
+    <Property Name="IsModified" Type="bit" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="UrlID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductMaster">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="Image" Type="varchar(max)" Nullable="false" />
+    <Property Name="Image1" Type="varchar(max)" />
+    <Property Name="Image2" Type="varchar(max)" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsModified" Type="bit" Nullable="false" />
+    <Property Name="DeletedOn" Type="datetime" />
+    <Property Name="ProductQty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UrlMaster">
+    <Key>
+      <PropertyRef Name="UrlID" />
+    </Key>
+    <Property Name="UrlID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AcctionName" Type="varchar" MaxLength="50" />
+    <Property Name="ControllerName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserLoginMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="100" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="varchar" MaxLength="50" />
+    <Property Name="DEgID" Type="int" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="Pass" Type="varchar(max)" />
+    <Property Name="PassKey" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_CustomerOrderMaster_Customer">
+    <End Role="CustomerRegisterMaster" Type="Self.CustomerRegisterMaster" Multiplicity="0..1" />
+    <End Role="CustomerOrderMaster" Type="Self.CustomerOrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRegisterMaster">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerOrderMaster">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOrderMaster_Product">
+    <End Role="ProductMaster" Type="Self.ProductMaster" Multiplicity="0..1" />
+    <End Role="CustomerOrderMaster" Type="Self.CustomerOrderMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="CustomerOrderMaster">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerRegisterMaster_Product">
+    <End Role="ProductMaster" Type="Self.ProductMaster" Multiplicity="0..1" />
+    <End Role="CustomerRegisterMaster" Type="Self.CustomerRegisterMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="CustomerRegisterMaster">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategory_Url">
+    <End Role="UrlMaster" Type="Self.UrlMaster" Multiplicity="0..1" />
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UrlMaster">
+        <PropertyRef Name="UrlID" />
+      </Principal>
+      <Dependent Role="ProductCategory">
+        <PropertyRef Name="UrlID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NewShoppingDBModelStoreContainer">
+    <EntitySet Name="CustomerOrderMaster" EntityType="Self.CustomerOrderMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerRegisterMaster" EntityType="Self.CustomerRegisterMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DesignationMaster" EntityType="Self.DesignationMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrlMaster" EntityType="Self.UrlMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLoginMaster" EntityType="Self.UserLoginMaster" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerOrderMaster_Customer" Association="Self.FK_CustomerOrderMaster_Customer">
+      <End Role="CustomerRegisterMaster" EntitySet="CustomerRegisterMaster" />
+      <End Role="CustomerOrderMaster" EntitySet="CustomerOrderMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOrderMaster_Product" Association="Self.FK_CustomerOrderMaster_Product">
+      <End Role="ProductMaster" EntitySet="ProductMaster" />
+      <End Role="CustomerOrderMaster" EntitySet="CustomerOrderMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerRegisterMaster_Product" Association="Self.FK_CustomerRegisterMaster_Product">
+      <End Role="ProductMaster" EntitySet="ProductMaster" />
+      <End Role="CustomerRegisterMaster" EntitySet="CustomerRegisterMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategory_Url" Association="Self.FK_ProductCategory_Url">
+      <End Role="UrlMaster" EntitySet="UrlMaster" />
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
