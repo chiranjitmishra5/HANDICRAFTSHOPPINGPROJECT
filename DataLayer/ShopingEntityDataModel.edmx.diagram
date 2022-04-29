@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5abd357e842c4d82b37bcf3f5d2c36e9" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopingDBModel.CustomerOrderMaster" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.CustomerRegisterMaster" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.DesignationMaster" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.ProductCategory" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.ProductMaster" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.UrlMaster" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopingDBModel.UserLoginMaster" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="ShopingDBModel.FK_CustomerOrderMaster_CustomerRegisterMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopingDBModel.FK_CustomerOrderMaster_ProductMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopingDBModel.FK_ProductCategory_UrlMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopingDBModel.FK_ProductMaster_ProductCategory" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

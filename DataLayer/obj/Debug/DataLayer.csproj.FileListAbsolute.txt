@@ -1,0 +1,28 @@
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.dll.config
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.pdb
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.dll
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.dll
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.xml
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.pdb
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.xml
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.dll
+E:\my project work\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.pdb
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.dll.config
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.dll
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\DataLayer.pdb
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.dll
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.dll
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.xml
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.pdb
+E:\HANDICRAFTSHOPPING\DataLayer\bin\Debug\Newtonsoft.Json.xml
+E:\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+E:\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+E:\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+E:\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.dll
+E:\HANDICRAFTSHOPPING\DataLayer\obj\Debug\DataLayer.pdb
